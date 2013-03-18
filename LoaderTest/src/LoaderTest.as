@@ -30,8 +30,8 @@ package
 			var xmllist:XMLList = content..config;
 			if(xmllist.length() > 0)
 			{
-				ConfigManager.instance.XML_PATH = xmllist[0].XML_PATH.value;
-				ConfigManager.instance.SWF_PATH = xmllist[0].SWF_PATH.value;
+				ConfigManager.instance.xmlPath = xmllist[0].XML_PATH.@value;
+				ConfigManager.instance.swfPath = xmllist[0].SWF_PATH.@value;
 			}
 		}
 		

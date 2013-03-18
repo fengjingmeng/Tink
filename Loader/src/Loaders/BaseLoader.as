@@ -28,7 +28,9 @@ package Loaders
 		public function startLoad():void
 		{
 			_loading = true;
+			_progress = 1;
 			_urlRoader.load(_urlRequest);
+			trace("start load " + _urlRequest.url + "--------------------------------");
 		}
 		
 		public function get url():String
@@ -36,9 +38,19 @@ package Loaders
 			return _url;
 		}
 		
+		public function get loading():Boolean
+		{
+			return _loading;
+		}
+		
 		public function get data():*
 		{
 			return _urlRoader.data;
+		}
+		
+		public function get complete():Boolean
+		{
+			return _complete;
 		}
 		
 		public function get progress():Number

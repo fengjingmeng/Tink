@@ -12,10 +12,12 @@ package
 	{
 		private static var _instance:LoaderManager;
 		private var _model:LoaderModel;
+		private var _queue:LoaderQueue;
 		
 		public function LoaderManager()
 		{
 			_model = new LoaderModel();
+			_queue = new LoaderQueue();
 		}
 		
 		public function createLoader(path:String,type:int):*
@@ -25,6 +27,7 @@ package
 			if(!loader)
 			{
 				loader = createLoaderByType(path,type);
+				_queue.addLoader(loader);
 			}
 			model.loaderSaveByPath[loader.url] = loader;
 			return loader;
@@ -53,6 +56,13 @@ package
 		public function setup():void
 		{
 			
+		}
+		/**
+		 *不断加载 
+		 */		
+		public function execute():void
+		{
+			_queue.execute();
 		}
 		
 		public function get model():LoaderModel

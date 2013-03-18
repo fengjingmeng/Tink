@@ -6,6 +6,7 @@
     <classEntry path="Loaders.BaseLoader"/>
     <classEntry path="LoaderType"/>
     <classEntry path="Loaders.XMLLoader"/>
+    <classEntry path="LoaderEvents"/>
   </includeClasses>
   <includeResources/>
   <namespaceManifests/>

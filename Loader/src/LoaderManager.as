@@ -18,31 +18,32 @@ package
 			_model = new LoaderModel();
 		}
 		
-		public function createLoader(path:String,type:int):void
+		public function createLoader(path:String,type:int):*
 		{
 			var loader:BaseLoader;
 			loader = model.getloaderByPath(path);
 			if(!loader)
 			{
-				loader = createLoaderByType(type);
+				loader = createLoaderByType(path,type);
 			}
-			model.getloaderByPath(loader.url) = loader;
+			model.loaderSaveByPath[loader.url] = loader;
+			return loader;
 		}
 		
-		private function createLoaderByType(type:int):BaseLoader
+		private function createLoaderByType(path:String,type:int):BaseLoader
 		{
 			var loader:BaseLoader;
 			switch(type)
 			{
 				case LoaderType.XML:
 				{
-					loader = new XMLLoader();
+					loader = new XMLLoader(path);
 					break;
 				}
 					
 				default:
 				{
-					loader = new BaseLoader();
+					loader = new BaseLoader(path);
 					break;
 				}
 			}

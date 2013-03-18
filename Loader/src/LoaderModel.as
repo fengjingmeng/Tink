@@ -1,8 +1,9 @@
 package
 {
+	import Loaders.BaseLoader;
+	
 	import flash.events.EventDispatcher;
 	import flash.utils.Dictionary;
-	import Loaders.BaseLoader;
 	
 	/**
 	 *Loader  M 
@@ -22,6 +23,11 @@ package
 		public function getloaderByPath(url:String):BaseLoader
 		{
 			return _loaderSaveByPath[url];
+		}
+		
+		public function get loaderSaveByPath():Dictionary
+		{
+			return _loaderSaveByPath;
 		}
 	}
 }

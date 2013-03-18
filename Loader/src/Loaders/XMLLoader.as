@@ -7,9 +7,9 @@ package Loaders
 	 */	
 	public class XMLLoader extends BaseLoader
 	{
-		public function XMLLoader()
+		public function XMLLoader(url:String)
 		{
-			super();
+			super(url);
 		}
 	}
 }

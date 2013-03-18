@@ -1,5 +1,7 @@
 package
 {
+	import Loaders.XMLLoader;
+	
 	import flash.display.Sprite;
 	
 	public class LoaderTest extends Sprite
@@ -11,12 +13,14 @@ package
 		
 		private function setup():void
 		{
-			LoaderManager.instance.createLoader(createConfigPath(),LoaderType.XML);
+			var loader:XMLLoader = LoaderManager.instance.createLoader(createConfigPath(),LoaderType.XML);
+			loader.startLoad();
 		}
 		
 		private function createConfigPath():String
 		{
 			var path:String = "config.xml";
+			return path;
 		}
 	}
 }
